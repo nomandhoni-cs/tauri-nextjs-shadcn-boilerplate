@@ -77,7 +77,7 @@ jobs:
       - name: Install frontend dependencies
         run: bun install
 
-      - uses: tauri-apps/tauri-action@v0.5.16
+      - uses: tauri-apps/tauri-action@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

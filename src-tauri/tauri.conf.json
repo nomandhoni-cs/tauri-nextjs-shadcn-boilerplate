@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "tauri-nextjs-shadcn-boilerplate",
   "version": "0.1.0",
-  "identifier": "com.tauri.dev",
+  "identifier": "com.tauri-nextjs-shadcn-boilerplate.dev",
   "build": {
     "frontendDist": "../out",
     "devUrl": "http://localhost:3000",
