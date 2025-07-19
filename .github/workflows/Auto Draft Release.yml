@@ -1,7 +1,7 @@
 name: App Auto Draft Release
 on:
   pull_request:
-    branches: [master]
+    branches: [main]
   workflow_dispatch: # Allows manual triggering from GitHub UI
 jobs:
   build:
