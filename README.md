@@ -28,42 +28,64 @@ Cross-platform desktop app boilerplate built using:
 
 ---
 
-## 🛠️ Getting Started
+# Contribution Guide
 
-### 1. Clone the repository
+Contributions are welcome! Feel free to open issues or submit pull requests.
 
-```bash
-git clone https://github.com/nomandhoni-cs/tauri-nextjs-shadcn-boilerplate
-cd tauri-nextjs-shadcn-boilerplate
-```
+Contributions for improving the dashboard, enhancing customizability, and adding new languages for multilingual support are particularly appreciated.
 
-### 2. Install dependencies
+### How to Contribute:
 
-Using **Bun** (recommended):
+1. **Fork** the repository to your GitHub account.
 
-```bash
-bun install
-```
+2. **Clone** the repository to your local machine:
+   ```console
+   git clone https://github.com/yourW-username/blink-eye.git
+   ```
+3. **Create a new branch** for your changes:
+   ```console
+   git checkout -b my-branch
+   ```
+4. **Make changes** to the code.
 
-Or use your favorite package manager:
+5. **Commit** your changes:
+   ```console
+   git commit -m "commit message"
+   ```
+6. **Push** your changes to the remote repository:
+   ```console
+   git push origin my-branch
+   ```
+7. **Create a pull request** on GitHub.
 
-```bash
-npm install
-# or
-pnpm install
-# or
-yarn
-```
 
-### 3. Run in development mode
+## Application Setup
 
-```bash
-bun run tauri dev
-# or
-npm run tauri dev
-```
+### Prerequisites
 
-Then open [http://localhost:3000](http://localhost:3000) in your browser, or view it in the Tauri app window.
+1. **Tauri** (for building the desktop app)
+4. **Rust** (for building the desktop app)
+3. **Cargo** (for package management)
+2. **Bun** (for package management)
+
+### To build and run Blink Eye (Desktop App):
+1. **Install JavaScript dependencies:**
+
+    ```console
+    bun install
+    ```
+
+2. **Install all Cargo dependencies:**
+
+    ```console
+    cargo install --path src-tauri
+    ```
+
+3. **Run the app in development mode:**
+
+    ```console
+    bun run tauri dev
+    ```
 
 ---
 
