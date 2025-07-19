@@ -1,103 +1,121 @@
-import Image from "next/image";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ModeToggle } from "@/components/mode-toggle";
+import { useState } from "react";
+import { invoke } from "@tauri-apps/api/core";
+import {
+  TerminalSquare,
+  Globe,
+  BookOpen,
+  Rocket,
+  ChevronRight,
+} from "lucide-react";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [greetMsg, setGreetMsg] = useState("");
+  const [name, setName] = useState("");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  async function greet() {
+    setGreetMsg(await invoke("greet", { name }));
+  }
+
+  return (
+    <main className="relative min-h-screen flex flex-col items-center justify-center px-4 py-8 bg-background text-foreground">
+      {/* Top-right theme toggle */}
+      <div className="absolute top-4 right-4 z-10">
+        <ModeToggle />
+      </div>
+
+      {/* Main card */}
+      <div className="w-full  bg-card rounded-2xl shadow-lg p-8 space-y-8">
+        {/* Header */}
+        <header className="text-center space-y-3">
+          <h1 className="text-4xl font-bold tracking-tight leading-snug">
+            🚀 Tauri + Next.js + Tailwind + Shadcn + Bun
+          </h1>
+          <p className="text-muted-foreground text-sm">
+            A lightning-fast cross-platform starter powered by modern tech.
+          </p>
+        </header>
+
+        {/* Stack */}
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold flex items-center gap-2">
+            <Rocket className="w-5 h-5" />
+            Tech Stack
+          </h2>
+          <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-muted-foreground text-sm">
+            <li className="flex items-center gap-2">
+              <TerminalSquare className="w-4 h-4" />
+              Tauri
+            </li>
+            <li className="flex items-center gap-2">
+              <Globe className="w-4 h-4" />
+              Next.js
+            </li>
+            <li className="flex items-center gap-2">
+              <BookOpen className="w-4 h-4" />
+              Shadcn UI
+            </li>
+            <li className="flex items-center gap-2">
+              <TerminalSquare className="w-4 h-4" />
+              Tailwind CSS
+            </li>
+            <li className="flex items-center gap-2">
+              <Rocket className="w-4 h-4" />
+              Bun Runtime
+            </li>
+          </ul>
+        </section>
+        <div className="flex justify-center items-center gap-4 text-muted-foreground text-sm">
+          <span className="flex items-center gap-2 text-2xl">🍎 macOS</span>
+          <span className="flex items-center gap-2 text-2xl">🪟 Windows</span>
+          <span className="flex items-center gap-2 text-2xl">🐧 Linux</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* Input form */}
+        <section>
+          <form
+            className="flex flex-col sm:flex-row gap-3"
+            onSubmit={(e) => {
+              e.preventDefault();
+              greet();
+            }}
+          >
+            <Input
+              id="greet-input"
+              placeholder="Enter a name..."
+              className="flex-grow text-base"
+              onChange={(e) => setName(e.currentTarget.value)}
+            />
+            <Button type="submit" className="text-base">
+              Greet
+            </Button>
+          </form>
+
+          {greetMsg && (
+            <p className="mt-4 text-center text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/20 p-3 rounded-md text-lg font-medium">
+              {greetMsg}
+            </p>
+          )}
+        </section>
+
+        {/* Footer / Docs */}
+        <footer className="text-center pt-4 border-t border-border">
+          <a
+            href="https://github.com/nomandhoni-cs/tauri-nextjs-shadcn-boilerplate"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition"
+          >
+            <BookOpen className="w-4 h-4 mr-1" />
+            Read the Docs
+            <ChevronRight className="w-4 h-4 ml-1" />
+          </a>
+        </footer>
+      </div>
+    </main>
   );
 }
