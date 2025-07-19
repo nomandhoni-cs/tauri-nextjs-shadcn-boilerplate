@@ -1,4 +1,6 @@
 <img width="965" height="701" alt="image" src="https://github.com/user-attachments/assets/2051fe20-2911-47ab-b580-3252775d6fd6" />
+
+
 # 🚀 Tauri + Next.js + Tailwind + Shadcn + Bun Boilerplate
 
 Cross-platform desktop app boilerplate built using:
@@ -56,9 +58,9 @@ yarn
 ### 3. Run in development mode
 
 ```bash
-bun dev
+bun run tauri dev
 # or
-npm run dev
+npm run tauri dev
 ```
 
 Then open [http://localhost:3000](http://localhost:3000) in your browser, or view it in the Tauri app window.
@@ -122,35 +124,21 @@ This boilerplate uses `shadcn/ui` and supports:
 To build the Tauri app:
 
 ```bash
-bun run build:tauri
+bun run tauri build
 ```
 
 Or with npm:
 
 ```bash
-npm run build:tauri
+npm run tauri build
 ```
 
 To run in release mode:
 
 ```bash
-bun run tauri dev --release
+bun run tauri dev
 ```
 
----
-
-## 🌍 Deploy
-
-This app is built for desktop via Tauri.
-
-However, if you want to deploy the frontend as a static site (for demo purposes), use:
-
-- [Vercel](https://vercel.com)
-- [Netlify](https://netlify.com)
-
-Make sure to export the app properly or configure for static output.
-
----
 
 ## 🤝 Contributing
 
